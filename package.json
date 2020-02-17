@@ -23,7 +23,7 @@
     "style-loader": "^0.13.2",
     "swagger-jsdoc": "^3.4.0",
     "webpack": "~2.3.1",
-    "webpack-dev-server": "~2.4.2",
+    "webpack-dev-server": "~3.1.11",
     "write-file-webpack-plugin": "~4.2.0"
   },
   "dependencies": {
