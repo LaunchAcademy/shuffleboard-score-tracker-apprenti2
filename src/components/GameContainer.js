@@ -1,15 +1,13 @@
 import React, { useState } from "react";
 import PlayerScore from "./PlayerScore";
-import PlayerFormContainer from "./PlayerFormContainer";
 
-const INITIAL_GAME_STATE = {};
+const INITIAL_GAME_STATE = {
+  Red: 0,
+  Blue: 0
+};
 
 const GameContainer = props => {
   const [scores, setScores] = useState(INITIAL_GAME_STATE);
-
-  const addNewPlayer = name => {
-    setScores(Object.assign({}, scores, { [name]: 0 }));
-  };
 
   const handleScoreChange = (teamName, scoreDelta) => {
     const newScore = {
@@ -33,6 +31,7 @@ const GameContainer = props => {
   Object.keys(scores).forEach(name => {
     playerScoreComponents.push(
       <PlayerScore
+        key={name}
         name={name}
         score={scores[name]}
         handleScoreChange={handleScoreChange}
@@ -41,7 +40,6 @@ const GameContainer = props => {
   });
   return (
     <div>
-      <PlayerFormContainer addNewPlayer={addNewPlayer} />
       <h1>Shuffleboard Scores</h1>
       {playerScoreComponents}
       <p className="button-container">
